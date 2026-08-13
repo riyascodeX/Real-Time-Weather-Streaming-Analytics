@@ -17,6 +17,8 @@ Live weather data → Event-driven ingestion → Real-Time Intelligence → Inst
 
 ---
 
+> ⚠️ **Important Note:** The Azure Function trigger for this project has been **turned off** to avoid ongoing Azure consumption costs. The pipeline is fully built and functional, but is not currently running live. To resume live ingestion, redeploy/re-enable the timer trigger following the setup steps below.
+
 ## 📖 Overview
 
 **SkyFlow** is a real-time data pipeline that ingests live weather and air-quality data from a public API and turns it into instant dashboards and automated alerts. An Azure Function polls the [WeatherAPI.com](https://www.weatherapi.com/) service on a timer, flattens and enriches the response, and streams it through **Azure Event Hub** into **Microsoft Fabric's Real-Time Intelligence** stack. There, **Eventstream** and an **Eventhouse (KQL database)** handle continuous ingestion and querying, powering a live **Power BI** dashboard for monitoring — while **Data Activator** triggers automated alerts sent directly to Outlook when defined weather conditions are met.
